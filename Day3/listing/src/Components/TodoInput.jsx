@@ -9,8 +9,7 @@ const TodoInput = ({ addTodo }) => {
     setValue(x);
   };
   return (
-    <div>
-      <input value={value} type="text" placeholder="Write Something" onChange={handleInput} />
+    <div className="todoinput">
       <button
         disabled={!value}
         onClick={() => {
@@ -19,8 +18,9 @@ const TodoInput = ({ addTodo }) => {
           setValue("");
         }}
       >
-        Add
+        +
       </button>
+      <input value={value} type="text" placeholder="Write Something..." onChange={handleInput} />
     </div>
   );
 };
