@@ -1,8 +1,10 @@
 import React from 'react'
 
-const TodoList = () => {
+const TodoList = ({children}) => {
   return (
-    <div></div>
+    <>
+      {children}
+    </>
   )
 }
 

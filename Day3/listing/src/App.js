@@ -16,7 +16,7 @@ function App() {
       {/* <button onClick={() => setToggle(!toggle)}>
         {toggle ? 'Show Counter App' : 'Show Todo App'}
       </button> */}
-      {/* <Todo/> */}
+      <Todo/>
       {/* <Sprint1Day3/> */}
     </div>
   );

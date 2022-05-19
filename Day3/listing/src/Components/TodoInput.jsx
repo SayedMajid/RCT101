@@ -1,22 +1,25 @@
 import React, { useState } from "react";
 
 const TodoInput = ({ addTodo }) => {
+  const [todos, setTodos] = useState([]);
   const [value, setValue] = useState("");
 
   const handleInput = (e) => {
-    setValue(e.target.value);
+    let x = e.target.value;
+    setValue(x);
   };
   return (
     <div>
-      <input  type="text" placehoder="Add Task Here" onChange={handleInput} />
+      <input value={value} type="text" placeholder="Write Something" onChange={handleInput} />
       <button
+        disabled={!value}
         onClick={() => {
           console.log(value);
           addTodo(value);
-        //   setValue("");
+          setValue("");
         }}
       >
-        ADD
+        Add
       </button>
     </div>
   );
