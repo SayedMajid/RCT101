@@ -17,7 +17,7 @@ const Restaurants = (props) => {
               <div className="restaurant-ratings">
                 <i className="material-icons star-icon">star</i> {restaurant.rating}
               </div>
-              .<div className="restaurant-delivery-timings">{restaurant.deliveryTiming}</div> .
+              .<div className="restaurant-delivery-timings">{restaurant.deliveryTiming} Mins</div> .
               <div className="restaurant-cost-for-two">{restaurant.costOf2} FOR TWO</div>
             </div>
             <div className="offer-banner">
