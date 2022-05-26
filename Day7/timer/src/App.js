@@ -3,14 +3,13 @@ import React, { useEffect } from "react"
 
 function App() {
 
-  const [seconds, setSeconds] = React.useState(0);
-  const [mins, setMins] = React.useState(0);
+  const [seconds, setSeconds] = useState(0);
+  const [mins, setMins] = useState(0);
 
   let timer;
   let endPoint = 59
   
   useEffect(() => {
-    
     timer = setInterval(() => {
       setSeconds(seconds + 1)
       if(seconds === endPoint){
@@ -18,7 +17,7 @@ function App() {
         setSeconds(0)
       }
     },1000)
-
+    
     return () => clearInterval(timer)
   })
 
