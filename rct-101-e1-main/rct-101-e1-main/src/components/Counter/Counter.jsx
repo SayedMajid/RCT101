@@ -9,16 +9,14 @@ const Counter = ({ count, updateCount }) => {
         data-cy="task-counter-increment-button"
         onClick={() => updateCount(count + 1)}
       >
-        {" "}
-        +{" "}
+      +
       </button>
       <span data-cy="task-counter-value">{count}</span>
       <button
         data-cy="task-counter-decrement-button"
         onClick={() => updateCount(count - 1)}
       >
-        {" "}
-        -{" "}
+        -
       </button>
     </div>
   );
