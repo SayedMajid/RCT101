@@ -1,24 +1,25 @@
 import React, { useState } from "react";
 import styles from "./counter.module.css";
 
-const Counter = () => {
-  const[count, setCount] = useState(0)
-
-  const handleIncrement = () =>{
-    setCount(count + 1)
-  }
-
-  const handleDecrement = () =>{
-    if(count > 0){
-      setCount(count - 1)
-    }
-  }
+const Counter = ({ count, updateCount }) => {
   // NOTE: do not delete `data-cy` key value pair
   return (
     <div className={styles.counter}>
-      <button data-cy="task-counter-increment-button" onClick={handleIncrement}> + </button>
+      <button
+        data-cy="task-counter-increment-button"
+        onClick={() => updateCount(count + 1)}
+      >
+        {" "}
+        +{" "}
+      </button>
       <span data-cy="task-counter-value">{count}</span>
-      <button data-cy="task-counter-decrement-button" onClick={handleDecrement}> - </button>
+      <button
+        data-cy="task-counter-decrement-button"
+        onClick={() => updateCount(count - 1)}
+      >
+        {" "}
+        -{" "}
+      </button>
     </div>
   );
 };
