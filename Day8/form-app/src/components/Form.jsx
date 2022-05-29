@@ -3,7 +3,8 @@ import { useState } from "react";
 
 const Form = () => {
   const [form, setForm] = useState({});
-    const ref = useRef();
+  const ref = useRef();
+
   const handleChange = (e) => {
     let { type, checked, name, value, files } = e.target;
     if (type === "checkbox") {
@@ -18,21 +19,25 @@ const Form = () => {
     }
   };
 
+  let data = JSON.parse(localStorage.getItem("data")) || [];
+
   const handleSubmit = (e) => {
     if (!form.username) ref.current.focus();
     e.preventDefault();
-    console.log(form);
+    console.log(form)
+    data.push(form)
+    localStorage.setItem('data', JSON.stringify(data))
   };
 
   //displaying data on console - use useEffect hook...
   return (
+    <>
     <div>
       <h1>Forms - User Info</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label>Name :</label>
           <input
-          
             type="text"
             required
             name="username"
@@ -44,7 +49,6 @@ const Form = () => {
         <div>
           <label>Email :</label>
           <input
-          
             type="email"
             name="email"
             placeholder="Enter Email..."
@@ -55,7 +59,6 @@ const Form = () => {
         <div>
           <label>Password :</label>
           <input
-          
             type="password"
             name="password"
             placeholder="Enter Password..."
@@ -66,7 +69,6 @@ const Form = () => {
         <div>
           <label htmlFor="">Department : </label>
           <select
-          
             name="selectDepartment"
             id=""
             value={form.selectDepartment}
@@ -82,7 +84,6 @@ const Form = () => {
         <div>
           <label>Age :</label>
           <input
-          
             type="number"
             name="age"
             placeholder="Enter age..."
@@ -92,7 +93,6 @@ const Form = () => {
         </div>
         <div>
           <input
-          
             type="checkbox"
             name="IsIndian"
             placeholder="Enter age..."
@@ -104,7 +104,6 @@ const Form = () => {
         <div>
           <div>
             <input
-            
               type="radio"
               name="gender"
               value="male"
@@ -114,7 +113,6 @@ const Form = () => {
           </div>
           <div>
             <input
-            
               type="radio"
               name="gender"
               value="Female"
@@ -126,7 +124,6 @@ const Form = () => {
         <div>
           <label htmlFor="">User Resume : </label>
           <input
-          
             type="file"
             name="resume"
             id=""
@@ -137,6 +134,22 @@ const Form = () => {
         <input type="submit" value="Submit" />
       </form>
     </div>
+
+    <div>
+      <hr />
+      Data Mapped from Local Storage Below 
+
+      {data.map((el) => {
+        return <div>
+          <p>NAME : {el.username}</p>
+          <p>EMAIL : {el.email}</p>
+          <p>DEPARTMENT : {el.selectDepartment}</p>
+          <p>AGE : {el.age}</p>
+          <p></p>
+        </div>
+      })}
+    </div>
+    </>
   );
 };
 
