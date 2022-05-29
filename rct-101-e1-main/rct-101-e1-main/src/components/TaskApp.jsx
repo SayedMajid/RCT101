@@ -23,7 +23,9 @@ const TaskApp = () => {
   };
 
   const handleUpdateTask = (updatedTask) => {
+
     let newTasks = tasks.reduce((acc, curr) => {
+
       if (curr.id === updatedTask.id) {
         acc.push(updatedTask);
       } else {
@@ -31,8 +33,8 @@ const TaskApp = () => {
       }
       return acc;
     }, []);
+
     setTasks([...newTasks]);
-    console.log(newTasks);
   };
 
   const handleRemoveTask = (taskId) => {

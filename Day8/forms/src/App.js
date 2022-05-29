@@ -1,12 +1,13 @@
 import "./App.css";
-import Form from "./components/Form";
 import Timer from"./components/Timer";
+import Forms from "./components/Forms";
 
 function App() {
   return <div className="App">
     <Timer/>
-    <Form/>
+    <Forms/>
   </div>;
 }
 
 export default App;
+
