@@ -1,43 +1,22 @@
-import './App.css';
-import React, { useEffect } from "react"
+import React, { useState } from "react";
+import Stopwatch from "./Components/Stopwatch";
+import Timer from "./Components/Timer";
 
-function App() {
-
-  const [seconds, setSeconds] = useState(0);
-  const [mins, setMins] = useState(0);
-
-  let timer;
-  let endPoint = 59
-  
-  useEffect(() => {
-    timer = setInterval(() => {
-      setSeconds(seconds + 1)
-      if(seconds === endPoint){
-        setMins(mins + 1);
-        setSeconds(0)
-      }
-    },1000)
-    
-    return () => clearInterval(timer)
-  })
-
-  const resetTimer = () => {
-    setSeconds(0);
-    setMins(0);
-  }
-
-  const stopTimer = () => {
-    clearInterval(timer)
-  }
+const App = () => {
+  const [display, setDisplay] = useState(undefined);
 
   return (
-    <div className="App">
-      <h1>My Timer App</h1>
-      <h1>{mins} : {seconds}</h1>
-      <button onClick={resetTimer}>Reset</button>
-      <button onClick={stopTimer}>Stop</button>
+    <div style={{border:"0px solid black", width:"max-content", margin:"auto", textAlign:"center"}}>
+      <div style={{display:"flex", border:"1px solid black", width:"500px", justifyContent:"space-evenly"}}>
+        <h1 onClick={() => setDisplay(0)}>Stopwatch</h1>
+        <h1 onClick={() => setDisplay(1)}>Timer</h1>
+      </div>
+
+      <div>
+        {display == 0 ? <Stopwatch/> : <Timer/>}
+      </div>
     </div>
   );
-}
+};
 
 export default App;
