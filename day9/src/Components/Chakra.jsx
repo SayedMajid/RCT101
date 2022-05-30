@@ -6,7 +6,7 @@ import {
   Badge,
   Icon,
   Text,
-  Container,
+  Container
 } from "@chakra-ui/react";
 import AspectRatioFile from "./Layout/AspectRatioFile";
 import BoxFile from "./Layout/BoxFile";
@@ -14,18 +14,19 @@ import CenterFile from "./Layout/CenterFile";
 import ContFile from "./Layout/ContFile";
 import FlexFile from "./Layout/FlexFile";
 
+
 const Chakra = () => {
   return (
     <>
-      <Text fontSize={"9xl"}> Learn Chakra Ui</Text>
-      <AspectRatioFile />
-      <hr />
-      <BoxFile />
-      <hr />
-      <CenterFile />
-      <hr />
-      <ContFile />
-      <hr />
+      {/* <Text fontSize={"9xl"}> Learn Chakra Ui</Text> */}
+      {/* <AspectRatioFile /> */}
+      {/* <hr /> */}
+      {/* <BoxFile /> */}
+      {/* <hr /> */}
+      {/* <CenterFile /> */}
+      {/* <hr /> */}
+      {/* <ContFile /> */}
+      {/* <hr /> */}
       <FlexFile />
     </>
   );
