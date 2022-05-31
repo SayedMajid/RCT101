@@ -1,23 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {useReducer} from 'react'
+
+const reducer = (counter, action) => {
+  switch (action.type){
+    case 'Increment':{
+      return counter + 1
+    }
+    case 'Decrement':{
+      if(counter > 0) return counter - 1
+    }
+    default:{
+      console.log('Type Incorrect', action.type)
+      return counter
+    }
+  }
+}
 
 function App() {
+  const [counter , dispatch] = useReducer(reducer , 0)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Counter : {counter}</h1>
+      <button onClick={() => dispatch({type : 'Increment'})}> + </button>
+      <button onClick={() => dispatch({type : 'Decrement'})}> - </button>
     </div>
   );
 }
