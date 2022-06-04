@@ -1,6 +1,8 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Button } from "@chakra-ui/react";
+import { CartContext } from "../context/CartContext";
 const Cart = () => {
+  const {addToCart} = useContext(CartContext)
   return (
     <div>
       <Button
@@ -8,6 +10,7 @@ const Cart = () => {
         h="30px"
         bg="transparent"
         border="1px solid black"
+        onClick={addToCart}
       >
         Add to cart
       </Button>
