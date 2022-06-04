@@ -1,14 +1,18 @@
-import React, { useContext } from 'react'
-import { CartContext } from '../context/CartContext'
-
+import React from "react";
+import { Button } from "@chakra-ui/react";
 const Cart = () => {
-    const {count , setCount} = useContext(CartContext)
   return (
     <div>
-        Cart
-        <button onClick={() => setCount(count + 1)}>Add to cart</button>
+      <Button
+        fontSize="14px"
+        h="30px"
+        bg="transparent"
+        border="1px solid black"
+      >
+        Add to cart
+      </Button>
     </div>
-  )
-}
+  );
+};
 
-export default Cart
+export default Cart;

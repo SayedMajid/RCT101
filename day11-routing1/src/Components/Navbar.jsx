@@ -1,11 +1,11 @@
 import React from "react";
-import Wishlist from "./Wishlist";
 
 const Navbar = () => {
   return (
     <div>
-      <button>Login</button>
-      <Wishlist />
+      <a href="/">Home</a>
+      <a href="/About">About</a>
+      <a href="/Products">Products</a>
     </div>
   );
 };

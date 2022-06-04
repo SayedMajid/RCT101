@@ -1,13 +1,12 @@
-import React from 'react'
-import Products from './Products'
+import React from "react";
+import Products from "./Products"
 
 const Body = () => {
   return (
     <div>
-        Body
-        <Products/>
+      <Products/>
     </div>
-  )
-}
+  );
+};
 
-export default Body
+export default Body;
